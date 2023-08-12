@@ -16,6 +16,20 @@ Deskdrop adalah platform komunikasi internal yang dikembangkan oleh CI&T, berfok
 #### Content
 [CI&T Deskdrop Dataset](https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop?select=users_interactions.csv) berisi sampel log 12 bulan (Maret 2016 - Februari 2017) dari platform Komunikasi Internal CI&T (DeskDrop) dengan 73000 interaksi pengguna yang tercatat dari 3000 artikel publik yang dibagikan di platform.
 
+#### shared_articles.csv :
+* timestamp : pengenal waktu unik
+* eventType : 'CONTENT SHARED' (Artikel dibagikan di platform dan tersedia untuk pengguna.), 'CONTENT REMOVED' (Artikel telah dihapus dari platform dan tidak tersedia untuk rekomendasi lebih lanjut.)
+* contentId : pengenal konten unik
+* authorPersonId : pengenal id unik
+* authorSessionId : pengenal sesi unik
+* authorUserAgent
+* authorRegion
+* authorCountry
+* contentType
+* url
+* title
+* text
+* lang
 
 
 ## Referensi
