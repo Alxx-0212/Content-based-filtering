@@ -11,25 +11,31 @@ Berdasarkan pada latar belakang di atas, permasalahan yang dapat diselesaikan pa
 Tujuan dari proyek ini adalah meningkatkan pengalaman pengguna dengan menyajikan rekomendasi konten yang lebih relevan, personal, dan menarik. 
 
 ## Data Understanding
-#### Context
-Deskdrop adalah platform komunikasi internal yang dikembangkan oleh CI&T, berfokus pada perusahaan yang menggunakan Google G Suite. Di antara fitur lainnya, platform ini memungkinkan karyawan perusahaan untuk berbagi artikel yang relevan dengan rekan mereka, dan berkolaborasi di sekitar mereka.
-#### Content
-[CI&T Deskdrop Dataset](https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop?select=users_interactions.csv) berisi sampel log 12 bulan (Maret 2016 - Februari 2017) dari platform Komunikasi Internal CI&T (DeskDrop) dengan 73000 interaksi pengguna yang tercatat dari 3000 artikel publik yang dibagikan di platform.
-
-#### shared_articles.csv :
+Deskdrop adalah platform komunikasi internal yang dikembangkan oleh CI&T, berfokus pada perusahaan yang menggunakan Google G Suite. Di antara fitur lainnya, platform ini memungkinkan karyawan perusahaan untuk berbagi artikel yang relevan dengan rekan mereka, dan berkolaborasi di sekitar mereka. [CI&T Deskdrop Dataset](https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop?select=users_interactions.csv) berisi sampel log 12 bulan (Maret 2016 - Februari 2017) dari platform Komunikasi Internal CI&T (DeskDrop) dengan 73000 interaksi pengguna yang tercatat dari 3000 artikel publik yang dibagikan di platform.
+#### Variabel-variabel pada *shared_articles.csv* adalah sebagai berikut :
 * timestamp : pengenal waktu unik
 * eventType : 'CONTENT SHARED' (Artikel dibagikan di platform dan tersedia untuk pengguna.), 'CONTENT REMOVED' (Artikel telah dihapus dari platform dan tidak tersedia untuk rekomendasi lebih lanjut.)
 * contentId : pengenal konten unik
 * authorPersonId : pengenal id unik
 * authorSessionId : pengenal sesi unik
-* authorUserAgent
-* authorRegion
-* authorCountry
-* contentType
-* url
-* title
-* text
-* lang
+* authorUserAgent : informasi yang dikirim oleh peramban web
+* authorRegion : informasi mengenai asal wilayah pembuat artikel
+* authorCountry : informasi mengenai asal negara pembuat artikel
+* contentType : 'HTML', 'RICH', 'VIDEO'
+* url : url atau link menuju ke artikel
+* title : judul artikel
+* text : isi artikel
+* lang : bahasa 
+#### Variabel-variabel pada *users_interactions.csv* adalah sebagai berikut :
+* timestamp : pengenal waktu unik
+* eventType : 'VIEW' (Pengguna telah membuka artikel.), 'LIKE' (Pengguna telah menyukai artikel tersebut.), 'COMMENT CREATED' (Pengguna membuat komentar di artikel.), 'FOLLOW' (Pengguna memilih untuk diberi tahu tentang komentar baru apa pun di artikel.), 'BOOKMARK' (Pengguna telah mem-bookmark artikel agar mudah dikembalikan di masa mendatang.)
+* contentId : pengenal konten unik
+* personId : pengenal id unik
+* sessionId : pengenal sesi unik
+* userAgent : informasi yang dikirim oleh peramban web
+* userRegion : informasi mengenai asal wilayah user
+* userCountry : informasi mengenai asal negara user
+
 
 
 ## Referensi
