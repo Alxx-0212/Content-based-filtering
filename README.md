@@ -47,4 +47,9 @@ Pembobotan berdasarkan *eventType* dari pengguna adalah pendekatan yang umum dig
 Kedua dataset kemudian digabung berdasarkan kolom *contentId* untuk memperoleh *rating* agar seluruh *rating* user terhadap suatu konten dapat dijumlahkan untuk evaluasi sistem rekomendasi.
 
 ## Modeling
-Model yang akan digunakan proyek kali ini yaitu menggunakan pendekatan content based filtering menggunakan TfidfVectorizer.
+Model yang akan digunakan proyek kali ini yaitu menggunakan pendekatan *content-based filtering* menggunakan TfidfVectorizer. Model *Content-Based Filtering* adalah salah satu pendekatan dalam sistem rekomendasi yang berfokus pada karakteristik atau konten dari item yang akan direkomendasikan kepada pengguna. Dalam model ini, kita mengukur kesamaan antara item berdasarkan fitur-fitur atau atribut-atribut yang ada pada item tersebut. Teknik yang digunakan dalam model *Content-Based Filtering* ini adalah *TF-IDF Vectorizer* dan *Cosine Similarity*.
+#### TF-IDF Vectorizer
+TF-IDF singkatan dari Term Frequency-Inverse Document Frequency. Ini adalah metode yang digunakan untuk mengukur pentingnya suatu kata dalam suatu dokumen atau korpus. Term Frequency (TF) mengukur seberapa sering kata tertentu muncul dalam dokumen. Ini memberikan bobot lebih besar pada kata-kata yang lebih sering muncul. Inverse Document Frequency (IDF) mengukur seberapa penting suatu kata dalam keseluruhan korpus dokumen. Kata-kata yang muncul di banyak dokumen mendapatkan nilai IDF lebih rendah. TF-IDF menggabungkan kedua konsep ini untuk memberikan representasi numerik bagi kata-kata dalam dokumen.
+#### Cosine Similarity
+Cosine Similarity adalah metode untuk mengukur kesamaan antara dua vektor dalam ruang berdimensi banyak, seperti dalam kasus representasi TF-IDF dari dokumen.
+#### Recommendation Result
