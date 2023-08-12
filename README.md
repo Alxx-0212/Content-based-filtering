@@ -12,7 +12,7 @@ Tujuan dari proyek ini adalah meningkatkan pengalaman pengguna dengan menyajikan
 
 ## Data Understanding
 Deskdrop adalah platform komunikasi internal yang dikembangkan oleh CI&T, berfokus pada perusahaan yang menggunakan Google G Suite. Di antara fitur lainnya, platform ini memungkinkan karyawan perusahaan untuk berbagi artikel yang relevan dengan rekan mereka, dan berkolaborasi di sekitar mereka. [CI&T Deskdrop Dataset](https://www.kaggle.com/datasets/gspmoreira/articles-sharing-reading-from-cit-deskdrop?select=users_interactions.csv) berisi sampel log 12 bulan (Maret 2016 - Februari 2017) dari platform Komunikasi Internal CI&T (DeskDrop) dengan 73000 interaksi pengguna yang tercatat dari 3000 artikel publik yang dibagikan di platform.
-#### Variabel-variabel pada *shared_articles.csv* adalah sebagai berikut :
+#### Variabel-variabel pada *shared_articles.csv* adalah sebagai berikut:
 * timestamp : pengenal waktu unik
 * eventType : 'CONTENT SHARED' (Artikel dibagikan di platform dan tersedia untuk pengguna.), 'CONTENT REMOVED' (Artikel telah dihapus dari platform dan tidak tersedia untuk rekomendasi lebih lanjut.)
 * contentId : pengenal konten unik
@@ -26,7 +26,7 @@ Deskdrop adalah platform komunikasi internal yang dikembangkan oleh CI&T, berfok
 * title : judul artikel
 * text : isi artikel
 * lang : bahasa 
-#### Variabel-variabel pada *users_interactions.csv* adalah sebagai berikut :
+#### Variabel-variabel pada *users_interactions.csv* adalah sebagai berikut:
 * timestamp : pengenal waktu unik
 * eventType : 'VIEW' (Pengguna telah membuka artikel.), 'LIKE' (Pengguna telah menyukai artikel tersebut.), 'COMMENT CREATED' (Pengguna membuat komentar di artikel.), 'FOLLOW' (Pengguna memilih untuk diberi tahu tentang komentar baru apa pun di artikel.), 'BOOKMARK' (Pengguna telah mem-bookmark artikel agar mudah dikembalikan di masa mendatang.)
 * contentId : pengenal konten unik
@@ -36,7 +36,15 @@ Deskdrop adalah platform komunikasi internal yang dikembangkan oleh CI&T, berfok
 * userRegion : informasi mengenai asal wilayah user
 * userCountry : informasi mengenai asal negara user
 
+## Data Preparation
+#### Memilih fitur untuk membuat sistem rekomendasi
+Pemilihan fitur dalam pembuatan sistem rekomendasi *content-based filtering* berdasarkan dataset CI&T Deskdrop sangat penting untuk memastikan bahwa rekomendasi yang dihasilkan sesuai dengan preferensi dan minat pengguna. Fitur-fitur ini digunakan sebagai representasi dari konten item (dalam kasus ini, artikel) dalam dataset. Dengan memilih fitur yang tepat, sistem dapat mengidentifikasi kemiripan antara item berdasarkan karakteristik kontennya, sehingga mampu memberikan rekomendasi yang lebih relevan.
+#### Mengapus data yang duplikat
+Penghapusan data yang duplikat dalam dataset sangat penting karena dapat mempengaruhi kualitas analisis, model, dan rekomendasi yang dibangun berdasarkan dataset tersebut.
+#### Mengubah eventType pada dataset users interactions menjadi bobot
+Pembobotan berdasarkan *eventType* dari pengguna adalah pendekatan yang umum digunakan dalam sistem rekomendasi berbasis konten (*content-based recommendation*) untuk meningkatkan akurasi dan relevansi rekomendasi. Kolom *eventType* dalam konteks ini merujuk pada jenis-jenis aktivitas atau interaksi yang dilakukan oleh pengguna dalam platform atau aplikasi, yang biasanya direkam dalam data log atau data interaksi. Di Deskdrop, pengguna diizinkan untuk melihat artikel berkali-kali, dan berinteraksi dengannya dengan cara yang berbeda (mis. Suka atau komentar). Oleh karena itu, untuk memodelkan minat pengguna pada artikel tertentu, dilakukan penggabungan semua interaksi yang telah dilakukan pengguna dalam item dengan penjumlahan berbobot dari jenis interaksi.
+#### Menggabungkan kedua dataset 
+Kedua dataset kemudian digabung berdasarkan kolom *contentId* untuk memperoleh *rating* agar seluruh *rating* user terhadap suatu konten dapat dijumlahkan untuk evaluasi sistem rekomendasi.
 
-
-## Referensi
-
+## Modeling
+Model yang akan digunakan proyek kali ini yaitu menggunakan pendekatan content based filtering menggunakan TfidfVectorizer.
