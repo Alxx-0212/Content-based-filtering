@@ -43,12 +43,13 @@ Pemilihan fitur dalam pembuatan sistem rekomendasi *content-based filtering* ber
 Penghapusan data yang duplikat dalam dataset sangat penting karena dapat mempengaruhi kualitas analisis, model, dan rekomendasi yang dibangun berdasarkan dataset tersebut.
 #### Mengubah eventType pada dataset users interactions menjadi bobot
 Pembobotan berdasarkan *eventType* dari pengguna adalah pendekatan yang umum digunakan dalam sistem rekomendasi berbasis konten (*content-based recommendation*) untuk meningkatkan akurasi dan relevansi rekomendasi. Kolom *eventType* dalam konteks ini merujuk pada jenis-jenis aktivitas atau interaksi yang dilakukan oleh pengguna dalam platform atau aplikasi, yang biasanya direkam dalam data log atau data interaksi. Di Deskdrop, pengguna diizinkan untuk melihat artikel berkali-kali, dan berinteraksi dengannya dengan cara yang berbeda (mis. Suka atau komentar). Oleh karena itu, untuk memodelkan minat pengguna pada artikel tertentu, dilakukan penggabungan semua interaksi yang telah dilakukan pengguna dalam item dengan penjumlahan berbobot dari jenis interaksi. Berikut adalah pembobotan berdasarkan interaksi pengguna :
-
-| 'VIEW'            | 1.0 |
-| 'LIKE'            | 2.0 |
-| 'BOOKMARK'        | 3.0 |
-| 'FOLLOW'          | 4.0 |
-| 'COMMENT CREATED' | 5.0 |
+|     eventType     | score |
+|:-----------------:|-------|
+| 'VIEW'            | 1.0   |
+| 'LIKE'            | 2.0   |
+| 'BOOKMARK'        | 3.0   |
+| 'FOLLOW'          | 4.0   |
+| 'COMMENT CREATED' | 5.0   |
 #### Menggabungkan kedua dataset 
 Kedua dataset kemudian digabung berdasarkan kolom *contentId* untuk memperoleh *rating* agar seluruh *rating* user terhadap suatu konten dapat dijumlahkan untuk evaluasi sistem rekomendasi.
 
