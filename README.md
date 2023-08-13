@@ -76,16 +76,14 @@ Menggunakan artikel "An operating model for company-wide agile development", ber
 
 ## Evaluation
 #### Precision@k
-Precision@k adalah salah satu metrik evaluasi yang digunakan untuk mengukur performa model dalam sistem rekomendasi, termasuk model Content-Based Filtering. Dalam konteks ini, Content-Based Filtering adalah pendekatan dalam sistem rekomendasi yang menganalisis konten atau fitur dari item-item yang akan direkomendasikan kepada pengguna. Precision@k mengukur sejauh mana item-item yang direkomendasikan oleh model benar-benar relevan untuk pengguna. Metrik ini memberikan informasi tentang seberapa akurat model dalam mengidentifikasi item-item yang memang sesuai dengan preferensi atau minat pengguna.
+Precision@k adalah salah satu metrik evaluasi yang digunakan untuk mengukur performa model dalam sistem rekomendasi, termasuk model Content-Based Filtering. Dalam konteks ini, *Content-Based Filtering* adalah pendekatan dalam sistem rekomendasi yang menganalisis konten atau fitur dari item-item yang akan direkomendasikan kepada pengguna. *Precision@k* mengukur sejauh mana item-item yang direkomendasikan oleh model benar-benar relevan untuk pengguna. Metrik ini memberikan informasi tentang seberapa akurat model dalam mengidentifikasi item-item yang memang sesuai dengan preferensi atau minat pengguna.
 
-* Precision: Precision adalah rasio antara jumlah item yang relevan yang benar-benar direkomendasikan (true positives) dibagi dengan total jumlah item yang direkomendasikan (true positives + false positives). Precision = (Jumlah item relevan yang direkomendasikan) / (Total jumlah item yang direkomendasikan)
-* @k: Nilai "k" mengacu pada jumlah item teratas yang direkomendasikan oleh model. Dalam konteks Precision@k, kita ingin melihat sejauh mana model bisa merekomendasikan item yang relevan dalam "k" item pertama.
+* *Precision*: *Precision* adalah rasio antara jumlah item yang relevan yang benar-benar direkomendasikan (*true positives*) dibagi dengan total jumlah item yang direkomendasikan (*true positives* + *false positives*). *Precision* = (Jumlah item relevan yang direkomendasikan) / (Total jumlah item yang direkomendasikan)
+* @k: Nilai "k" mengacu pada jumlah item teratas yang direkomendasikan oleh model. Dalam konteks *Precision@k*, kita ingin melihat sejauh mana model bisa merekomendasikan item yang relevan dalam "k" item pertama.
 
-Contoh pengukuran Precision@k pada model Content-Based Filtering:
+Pengukuran Precision@k pada model:
+Berdasarkan hasil rekomendasi artikel dengan judul "An operating model for company-wide agile development", artikel yang dianggap relevan adalah artikel yang memiliki rating total sebesar 21 atau rata - rata rating secara keseluruhan. Model Content-Based Filtering merekomendasikan 10 item kepada seorang pengguna. Dari 10 item tersebut, 9 item dianggap relevan sesuai dengan preferensi pengguna. 
 
-Model Content-Based Filtering merekomendasikan 10 item kepada seorang pengguna.
-Dari 10 item tersebut, 6 item dianggap relevan sesuai dengan preferensi pengguna (true positives).
-Dari 10 item yang direkomendasikan, ternyata hanya 4 item yang benar-benar relevan (true positives + false positives).
-Precision@k dalam kasus ini adalah Precision@10, dan nilainya adalah 6/10 = 0.6 atau 60%.
+Precision@k dalam kasus ini adalah Precision@10, dan nilainya adalah 9/10 = 0.9 atau 90%.
 
-Artinya, dari 10 item yang direkomendasikan, 60% di antaranya adalah item yang sesuai dengan preferensi pengguna. Semakin tinggi nilai Precision@k, semakin baik performa model Content-Based Filtering dalam merekomendasikan item yang relevan kepada pengguna.
+Artinya, dari 10 item yang direkomendasikan, 90% di antaranya adalah item yang sesuai dengan preferensi pengguna. Semakin tinggi nilai Precision@k, semakin baik performa model Content-Based Filtering dalam merekomendasikan item yang relevan kepada pengguna.
