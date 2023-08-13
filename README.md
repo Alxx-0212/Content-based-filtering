@@ -60,3 +60,18 @@ TF-IDF singkatan dari Term Frequency-Inverse Document Frequency. Ini adalah meto
 #### Cosine Similarity
 Cosine Similarity adalah metode untuk mengukur kesamaan antara dua vektor dalam ruang berdimensi banyak, seperti dalam kasus representasi TF-IDF dari dokumen.
 #### Recommendation Result
+Menggunakan artikel "An operating model for company-wide agile development", berikut adalah hasil rekomendasi *content-based filtering* :
+|    |                                      title                                      | rating |
+|----|:-------------------------------------------------------------------------------:|--------|
+| 1  | Embracing Agile                                                                 | 188.0  |
+| 2  | Agile is Dead, Long Live Continuous Delivery - Gradle                           | 24.0   |
+| 3  | 12 Agile principles                                                             | 1.0    |
+| 4  | Scrum Community - Scrum Alliance                                                | 64.0   |
+| 5  | Big IT Rising                                                                   | 50.0   |
+| 6  | Organizing for digital acceleration: Making a two-speed IT operating model work | 28.0   |
+| 7  | How enterprise architects can help ensure success with digital transformations  | 57.0   |
+| 8  | The new tech talent you need to succeed in digital                              | 34.0   |
+| 9  | Do you want Crappy Agile?                                                       | 43.0   |
+| 10 | Five questions boards should ask about IT in a digital world                    | 58.0   |
+
+## Evaluation
