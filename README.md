@@ -52,9 +52,20 @@ Pembobotan berdasarkan *eventType* dari pengguna adalah pendekatan yang umum dig
 | 'COMMENT CREATED' | 5.0   |
 #### Menggabungkan kedua dataset 
 Kedua dataset kemudian digabung berdasarkan kolom *contentId* untuk memperoleh *rating* agar seluruh *rating* user terhadap suatu konten dapat dijumlahkan untuk evaluasi sistem rekomendasi.
+#### Menjumlahkan seluruh rating user terhadap suatu konten untuk evaluasi
+Model content-based filtering adalah jenis model rekomendasi yang didasarkan pada karakteristik atau atribut dari item itu sendiri, seperti teks, fitur, atau metadata lainnya. Dalam *content-based filtering*, tujuannya adalah mencari item-item yang memiliki kesamaan dalam atribut atau karakteristik tertentu dengan item yang disukai oleh pengguna. Ini berarti model mencoba memahami preferensi pengguna berdasarkan apa yang mereka sukai pada item sebelumnya, bukan dengan membandingkan perilaku pengguna dengan pengguna lain. Oleh karena itu, seluruh dataset digabung berdasarkan judul dan jumlah keseluruhan rating user untuk judul tersebut untuk evaluasi sistem rekomendasi.
+###### Deskripsi dataset
+|        | title | text |   rating  |
+|:------:|:-----:|:----:|:---------:|
+|  count |  2173 | 2173 |    2173   |
+| unique |  2173 | 2169 |    NaN    |
+|  mean  |  NaN  |  NaN | 20.936954 |
+|   min  |  NaN  |  NaN |     0     |
+|   max  |  NaN  |  NaN |    462    |
+Rata - rata rating secara keseluruhan untuk semua artikel adalah 20.9369 atau kurang lebih sebesar 21. Oleh karena itu, rating tersebut akan digunakan sebagai threshold untuk evaluasi.
 
 ## Modeling
-Model yang akan digunakan proyek kali ini yaitu menggunakan pendekatan *content-based filtering* menggunakan TfidfVectorizer. Model *Content-Based Filtering* adalah salah satu pendekatan dalam sistem rekomendasi yang berfokus pada karakteristik atau konten dari item yang akan direkomendasikan kepada pengguna. Dalam model ini, kita mengukur kesamaan antara item berdasarkan fitur-fitur atau atribut-atribut yang ada pada item tersebut. Teknik yang digunakan dalam model *Content-Based Filtering* ini adalah *TF-IDF Vectorizer* dan *Cosine Similarity*.
+Model yang akan digunakan proyek kali ini yaitu menggunakan pendekatan *content-based filtering* menggunakan TfidfVectorizer. Model *Content-Based Filtering* adalah salah satu pendekatan dalam sistem rekomendasi yang berfokus pada karakteristik atau konten dari item yang akan direkomendasikan kepada pengguna. Dalam kasus ini, model mengukur kesamaan antara item berdasarkan fitur-fitur atau atribut-atribut yang ada pada item tersebut. Teknik yang digunakan dalam model *Content-Based Filtering* ini adalah *TF-IDF Vectorizer* dan *Cosine Similarity*.
 #### TF-IDF Vectorizer
 TF-IDF singkatan dari Term Frequency-Inverse Document Frequency. Ini adalah metode yang digunakan untuk mengukur pentingnya suatu kata dalam suatu dokumen atau korpus. Term Frequency (TF) mengukur seberapa sering kata tertentu muncul dalam dokumen. Ini memberikan bobot lebih besar pada kata-kata yang lebih sering muncul. Inverse Document Frequency (IDF) mengukur seberapa penting suatu kata dalam keseluruhan korpus dokumen. Kata-kata yang muncul di banyak dokumen mendapatkan nilai IDF lebih rendah. TF-IDF menggabungkan kedua konsep ini untuk memberikan representasi numerik bagi kata-kata dalam dokumen.
 #### Cosine Similarity
@@ -77,9 +88,10 @@ Menggunakan artikel "An operating model for company-wide agile development", ber
 ## Evaluation
 #### Precision@k
 Precision@k adalah salah satu metrik evaluasi yang digunakan untuk mengukur performa model dalam sistem rekomendasi, termasuk model Content-Based Filtering. Dalam konteks ini, *Content-Based Filtering* adalah pendekatan dalam sistem rekomendasi yang menganalisis konten atau fitur dari item-item yang akan direkomendasikan kepada pengguna. *Precision@k* mengukur sejauh mana item-item yang direkomendasikan oleh model benar-benar relevan untuk pengguna. Metrik ini memberikan informasi tentang seberapa akurat model dalam mengidentifikasi item-item yang memang sesuai dengan preferensi atau minat pengguna.
-
 * *Precision*: *Precision* adalah rasio antara jumlah item yang relevan yang benar-benar direkomendasikan (*true positives*) dibagi dengan total jumlah item yang direkomendasikan (*true positives* + *false positives*). *Precision* = (Jumlah item relevan yang direkomendasikan) / (Total jumlah item yang direkomendasikan)
-* @k: Nilai "k" mengacu pada jumlah item teratas yang direkomendasikan oleh model. Dalam konteks *Precision@k*, kita ingin melihat sejauh mana model bisa merekomendasikan item yang relevan dalam "k" item pertama.
+* @k: Nilai "k" mengacu pada jumlah item teratas yang direkomendasikan oleh model.
+
+Pengukuran nilai presisi berdasarkan rating dari suatu artikel. Jika artikel yang direkomendasikan oleh sistem memiliki rating lebih dari 21 maka konten tersebut dianggap relevan. Sebaliknya jika kurang maka artikel tidak dianggap relevan. 
 
 Pengukuran Precision@k pada model:
 Berdasarkan hasil rekomendasi artikel dengan judul "An operating model for company-wide agile development", artikel yang dianggap relevan adalah artikel yang memiliki rating total sebesar 21 atau rata - rata rating secara keseluruhan. Model Content-Based Filtering merekomendasikan 10 item kepada seorang pengguna. Dari 10 item tersebut, 9 item dianggap relevan sesuai dengan preferensi pengguna. 
