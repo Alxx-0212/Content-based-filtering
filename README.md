@@ -62,6 +62,7 @@ Model content-based filtering adalah jenis model rekomendasi yang didasarkan pad
 |  mean  |  NaN  |  NaN | 20.936954 |
 |   min  |  NaN  |  NaN |     0     |
 |   max  |  NaN  |  NaN |    462    |
+
 Rata - rata rating secara keseluruhan untuk semua artikel adalah 20.9369 atau kurang lebih sebesar 21. Oleh karena itu, rating tersebut akan digunakan sebagai threshold untuk evaluasi.
 
 ## Modeling
