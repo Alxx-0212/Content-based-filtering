@@ -87,3 +87,7 @@ Berdasarkan hasil rekomendasi artikel dengan judul "An operating model for compa
 Precision@k dalam kasus ini adalah Precision@10, dan nilainya adalah 9/10 = 0.9 atau 90%.
 
 Artinya, dari 10 item yang direkomendasikan, 90% di antaranya adalah item yang sesuai dengan preferensi pengguna. Semakin tinggi nilai Precision@k, semakin baik performa model Content-Based Filtering dalam merekomendasikan item yang relevan kepada pengguna.
+
+## Referensi
+* Arie Satia Dharma, Russel Buena Basadena Ayub Hutasoit, Rade Rido Pangaribuan, "Sistem RekomendasiMenggunakanItem-based Collaborative Filtering padaKonten Artikel Berita", vol 2, No 1 (April 2021)
+* Dewa Ayu Putri Diah Pramestia dan I Wayan Santiyasa, "Penerapan Metode Content-Based Filtering dalam Sistem Rekomendasi Video Game", JNATIA Volume 1, Nomor 1, (November 2022) 
