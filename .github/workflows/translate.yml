@@ -1,4 +1,5 @@
 name: Translate README
+
 on:
   push:
     branches:
@@ -8,18 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
-          node-version: 20.x
-      # ISO Language Codes: https://cloud.google.com/translate/docs/languages
-      - name: Adding README 
-        uses: ikhsan3adi/markdown-translator@master
+          node-version: 12.x
+      # ISO Langusge Codes: https://cloud.google.com/translate/docs/languages  
+      - name: Adding README
+        uses: dephraiim/translate-readme@main
         with:
-          LANG: |-
-            en
-          FILES: |-
-            README.md
-
-            
+          LANG: en
+      - name: Adding README - French
+        uses: dephraiim/translate-readme@main
+        with:
+          LANG: fr
