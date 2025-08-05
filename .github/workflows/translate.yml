@@ -19,8 +19,7 @@ jobs:
         with:
           LANG: |-
             en
-            id
           FILES: |-
-            README.id.md
+            README.md
 
             
