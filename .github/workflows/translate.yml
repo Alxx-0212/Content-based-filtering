@@ -1,25 +1,23 @@
-name: Translate README
+# .github/workflows/translate.yml
+name: Translate Readme
 
 on:
-  push:
-    branches:
-      - main
-      - master
+    push:
+        branches: ['**']
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      # ISO Langusge Codes: https://cloud.google.com/translate/docs/languages  
-      - name: Adding README
-        uses: dephraiim/translate-readme@main
-        with:
-          LANG: en
-      - name: Adding README - French
-        uses: dephraiim/translate-readme@main
-        with:
-          LANG: fr
+    translate:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                fetch-depth: 3
+
+            - name: Auto Translate
+              uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
+              with:
+                token: ${{ secrets.ACTION }} # Based on step2 name
+                zhipuai: ${{ secrets.ZHIPU }} # Optional: Based on step3
+                openai: ${{ secrets.openai_api_key }}  # Optional: Based on step3
+                langs: "en" # You can define any langs
