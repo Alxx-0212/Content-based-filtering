@@ -20,4 +20,4 @@ jobs:
                 token: ${{ secrets.action }} 
                 zhipuai: ${{ secrets.zhipu }} 
                 # openai: ${{ secrets.openai_api_key }}  
-                langs: "id, en" 
+                langs: "en" 
