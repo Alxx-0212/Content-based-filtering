@@ -22,6 +22,6 @@ jobs:
             en
             id
           FILES: |-
-            README.md
+            README.id.md
 
             
