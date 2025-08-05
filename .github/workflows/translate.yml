@@ -18,7 +18,9 @@ jobs:
       - name: Adding README 
         uses: ikhsan3adi/markdown-translator@master
         with:
-          LANG: en
+          LANG: |-
+            en
+            id
           FILES: |-
             README.md
 
